@@ -14,5 +14,5 @@ urlpatterns = [
     path('weapon/<int:pk>/update/', views.WeaponUpdateView.as_view(), name='weapon-update'),
     path('weapon/<int:pk>/delete/', views.WeaponDeleteView.as_view(), name='weapon-delete'),
     path('weapons/', views.weapon_index, name='weapons'),
-    path('weapon/<int:pk>/', views.weapon_show, name='weapon')
+    path('weapon/<int:weapon_id/', views.weapon_show, name='weapon'),
 ]

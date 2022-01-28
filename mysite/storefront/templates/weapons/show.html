@@ -2,3 +2,11 @@
 {% load static %}
 
 {% block content %}
+<h3>Name: {{weapon.name}}</h3>
+<p>description: {{weapon.description}}</p>
+<p>Price: {{weapon.price}}</p>
+
+<a href="{% url 'weapon-update' weapon.id %}">Update Weapon Details</a>
+<a href="{% url 'weapon-delete' weapon.id %}">DELETE THIS WEAPON</a>
+
+{% endblock %}
