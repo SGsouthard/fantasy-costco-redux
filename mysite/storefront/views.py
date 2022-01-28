@@ -86,8 +86,8 @@ class WeaponDeleteView(DeleteView):
     # success_url = reverse_lazy('')
 
 def weapon_index(request):
-    weapon = Weapon.objects.all()
-    return render(request, 'weapons/index.html', {'weapon': weapon})
+    weapons = Weapon.objects.all()
+    return render(request, 'weapons/index.html', {'weapons': weapons})
 
 def weapon_show(request, weapon_id):
     weapon= Weapon.objects.get(id=weapon_id)

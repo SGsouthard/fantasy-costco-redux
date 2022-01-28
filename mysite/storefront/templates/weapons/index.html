@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 
 <h3>Weapon List</h3>
 
+<div class = "the-loop">
 {% for weapon in weapons %}
     <div>
         <a href="{% url 'weapons' weapon.id %}">
@@ -14,5 +16,6 @@
         </a>
     </div>
 {% endfor %}
+</div>
 
 {% endblock %}
