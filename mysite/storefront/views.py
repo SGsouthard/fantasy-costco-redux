@@ -78,8 +78,6 @@ class WeaponCreateView(CreateView):
         return super().form_valid(form)
 
 class WeaponUpdateView(UpdateView):
-    user = User.object.get(id)
-    print(user)
     model = Weapon
     fields = ['name', 'description', 'price']
 
@@ -94,3 +92,5 @@ def weapon_index(request):
 def weapon_show(request, weapon_id):
     weapon= Weapon.objects.get(id=weapon_id)
     return render(request, 'weapons/show.html', {'weapon':weapon})
+
+# ===== ARMOR ===== #
