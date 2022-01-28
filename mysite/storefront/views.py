@@ -78,12 +78,14 @@ class WeaponCreateView(CreateView):
         return super().form_valid(form)
 
 class WeaponUpdateView(UpdateView):
+    user = User.object.get(id)
+    print(user)
     model = Weapon
     fields = ['name', 'description', 'price']
 
 class WeaponDeleteView(DeleteView):
     model = Weapon
-    # success_url = reverse_lazy('')
+    success_url = '/weapons/'
 
 def weapon_index(request):
     weapons = Weapon.objects.all()

@@ -5,6 +5,7 @@
 <h3>Name: {{weapon.name}}</h3>
 <p>description: {{weapon.description}}</p>
 <p>Price: {{weapon.price}}</p>
+<p>Created by: {{weapon.created_by}}</p>
 
 <a href="{% url 'weapon-update' weapon.id %}">Update Weapon Details</a>
 <a href="{% url 'weapon-delete' weapon.id %}">DELETE THIS WEAPON</a>
