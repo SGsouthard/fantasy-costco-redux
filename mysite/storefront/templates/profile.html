@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{{ user.username }}'s collection:</h1>
+    <h1>{{ user.username }}'s Submitted Items:</h1>
 
     {% for cat in cats %}
         <a href="/cats/{{cat.id}}">

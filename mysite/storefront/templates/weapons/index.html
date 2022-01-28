@@ -7,7 +7,7 @@
 <div class = "the-loop">
 {% for weapon in weapons %}
     <div>
-        <a href="{% url 'weapons' weapon.id %}">
+        <a href="{% url 'weapon' weapon.id %}">
             <div class="card-content">
                 <span>{{ weapon.name }}</span>
                 <p>Description: {{ weapon.description }}</p>
