@@ -45,7 +45,7 @@ class Weapon(models.Model):
     price = models.CharField(max_length=50)
 
     # added automatically when a user creates something
-    created_by = models.ForeignKey(User, on_delete=models.CASCADE)
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
         return self.name

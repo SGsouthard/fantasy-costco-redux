@@ -18,7 +18,6 @@ def index(request):
     return render(request, 'base.html')
 
 
-
 ########### USER #############
 def login_view(request):
     if request.method == 'POST':
@@ -67,29 +66,16 @@ def profile(request, username):
     # Weapons = Weapon.objects.filter(user=user)
     return render(request, 'profile.html', {'username': username,})
 
-
-# def submit_weapon(request):
-#     WeaponForm = modelformset_factory(Weapon, fields=('__all__'))
-#     if request.method == 'POST':
-#         form = WeaponForm(request.POST, request.FILES)
-#         print(form, "testing the form inside the first if statement")
-#         if form.is_valid():
-#             form.save()
-#             print(form, "testing if the second if statement is activating")
-#         else:
-#             print("first else has activated")
-#             return HttpResponse('<h1>Submission Failed, please log in and try again!</h1>')
-
-#     else:
-#         form = WeaponForm()
-#     return render(request, 'submit.html', {'form':form})
-
-def WeaponViewAll(request):
-    return HttpResponse('Testing for now')
+# ===== WEAPONS ===== #
 
 class WeaponCreateView(CreateView):
     model = Weapon
     fields = ['name', 'description', 'price']
+    success_url = '/weapons/'
+
+    def form_valid(self, form):
+        form.instance.created_by = self.request.user
+        return super().form_valid(form)
 
 class WeaponUpdateView(UpdateView):
     model = Weapon
@@ -99,3 +85,10 @@ class WeaponDeleteView(DeleteView):
     model = Weapon
     # success_url = reverse_lazy('')
 
+def weapon_index(request):
+    weapon = Weapon.objects.all()
+    return render(request, 'weapons/index.html', {'weapon': weapon})
+
+def weapon_show(request, weapon_id):
+    weapon= Weapon.objects.get(id=weapon_id)
+    return render(request, 'weapons/show.html', {'weapon':weapon})

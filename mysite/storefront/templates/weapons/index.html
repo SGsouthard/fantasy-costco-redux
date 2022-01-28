@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Weapon List</h1>
+
+{% for weapon in weapons %}
+    <div>
+        <a href="{% url 'weapons' weapon.id %}">
+            <div class="card-content">
+                <span>{{ weapon.name }}</span>
+                <p>Description: {{ weapon.description }}</p>
+                <p>Price: {{ weapon.price }}</p>
+            </div>
+        </a>
+    </div>
+{% endfor %}
+
+{% endblock %}

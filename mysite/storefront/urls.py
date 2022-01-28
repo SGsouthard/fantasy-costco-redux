@@ -11,7 +11,8 @@ urlpatterns = [
     path('user/<username>/', views.profile, name='profile'),
     # path('submit-weapon', views.submit_weapon, name='submit-weapon'),
     path('weapon/add/', views.WeaponCreateView.as_view(), name='weapon-add'),
-    path('weapon/<int:pk>/', views.WeaponUpdateView.as_view(), name='weapon-update'),
+    path('weapon/<int:pk>/update/', views.WeaponUpdateView.as_view(), name='weapon-update'),
     path('weapon/<int:pk>/delete/', views.WeaponDeleteView.as_view(), name='weapon-delete'),
-    path('weapons/', views.WeaponViewAll, name='weapons')
+    path('weapons/', views.weapon_index, name='weapons'),
+    path('weapon/<int:pk>/', views.weapon_show, name='weapon')
 ]
