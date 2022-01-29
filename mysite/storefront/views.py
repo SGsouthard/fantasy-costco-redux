@@ -69,7 +69,7 @@ def profile(request, username):
 class WeaponCreateView(LoginRequiredMixin, CreateView):
     model = Weapon
     fields = ['name', 'description', 'price']
-    success_url = '/weapons/'
+    success_url = '/weapon/'
 
     def form_valid(self, form):
         form.instance.created_by = self.request.user
@@ -78,12 +78,12 @@ class WeaponCreateView(LoginRequiredMixin, CreateView):
 class WeaponUpdateView(LoginRequiredMixin, UpdateView):
     model = Weapon
     fields = ['name', 'description', 'price']
-    success_url = '/weapons/'
+    success_url = '/weapon/'
 
 
 class WeaponDeleteView(LoginRequiredMixin, DeleteView):
     model = Weapon
-    success_url = '/weapons/'
+    success_url = '/weapon/'
 
 def weapon_index(request):
     weapons = Weapon.objects.all()
@@ -98,7 +98,7 @@ def weapon_show(request, weapon_id):
 class ArmorCreateView(LoginRequiredMixin, CreateView):
     model = Armor
     fields = ['name', 'description', 'price']
-    success_url = '/armors/'
+    success_url = '/armor/'
 
     def form_valid(self, form):
         form.instance.created_by = self.request.user
@@ -107,11 +107,11 @@ class ArmorCreateView(LoginRequiredMixin, CreateView):
 class ArmorUpdateView(LoginRequiredMixin, UpdateView):
     model = Armor
     fields = ['name', 'description', 'price']
-    success_url = '/armors/'
+    success_url = '/armor/'
 
 class ArmorDeleteView(LoginRequiredMixin, DeleteView):
     model = Armor
-    success_url = '/armors/'
+    success_url = '/armor/'
 
 def armor_index(request):
     armors = Armor.objects.all()
@@ -122,3 +122,113 @@ def armor_show(request, armor_id):
     return render(request, 'armor/show.html', {'armor':armor})
 
 # ===== Adventure Gear ===== #
+
+class AdventureGearCreateView(LoginRequiredMixin, CreateView):
+    model = AdventureGear
+    fields = ['name', 'description', 'price']
+    success_url = '/adventuregear/'
+
+    def form_valid(self, form):
+        form.instance.created_by = self.request.user
+        return super().form_valid(form)
+
+class AdventureGearUpdateView(LoginRequiredMixin, UpdateView):
+    model = AdventureGear
+    fields = ['name', 'description', 'price']
+    success_url = '/adventuregear/'
+
+class AdventureGearDeleteView(LoginRequiredMixin, DeleteView):
+    model = AdventureGear
+    success_url = '/adventuregear/'
+
+def adventuregear_index(request):
+    adventuregear = AdventureGear.objects.all()
+    return render(request, 'adventuregear/index.html', {'adventuregear': adventuregear})
+
+def adventuregear_show(request, adventuregear_id):
+    adventuregear= AdventureGear.objects.get(id=adventuregear_id)
+    return render(request, 'adventuregear/show.html', {'adventuregear':adventuregear})
+
+# ===== Mount ===== #
+
+class MountCreateView(LoginRequiredMixin, CreateView):
+    model = Mount
+    fields = ['name', 'description', 'price']
+    success_url = '/mount/'
+
+    def form_valid(self, form):
+        form.instance.created_by = self.request.user
+        return super().form_valid(form)
+
+class MountUpdateView(LoginRequiredMixin, UpdateView):
+    model = Mount
+    fields = ['name', 'description', 'price']
+    success_url = '/mount/'
+
+class MountDeleteView(LoginRequiredMixin, DeleteView):
+    model = Mount
+    success_url = '/mount/'
+
+def mount_index(request):
+    mounts = Mount.objects.all()
+    return render(request, 'mount/index.html', {'mounts': mounts})
+
+def mount_show(request, mount_id):
+    mount= Mount.objects.get(id=mount_id)
+    return render(request, 'mount/show.html', {'mount':mount})
+
+# ===== Potion ===== #
+
+class PotionCreateView(LoginRequiredMixin, CreateView):
+    model = Potion
+    fields = ['name', 'description', 'price']
+    success_url = '/potion/'
+
+    def form_valid(self, form):
+        form.instance.created_by = self.request.user
+        return super().form_valid(form)
+
+class PotionUpdateView(LoginRequiredMixin, UpdateView):
+    model = Potion
+    fields = ['name', 'description', 'price']
+    success_url = '/potion/'
+
+class PotionDeleteView(LoginRequiredMixin, DeleteView):
+    model = Potion
+    success_url = '/potion/'
+
+def potion_index(request):
+    potions = Potion.objects.all()
+    return render(request, 'potion/index.html', {'potions': potions})
+
+def potion_show(request, potion_id):
+    potion= Potion.objects.get(id=potion_id)
+    return render(request, 'potion/show.html', {'potion':potion})
+
+# ===== Trinket ===== #
+
+class TrinketCreateView(LoginRequiredMixin, CreateView):
+    model = Trinket
+    fields = ['name', 'description', 'price']
+    success_url = '/trinket/'
+
+    def form_valid(self, form):
+        form.instance.created_by = self.request.user
+        return super().form_valid(form)
+
+class TrinketUpdateView(LoginRequiredMixin, UpdateView):
+    model = Trinket
+    fields = ['name', 'description', 'price']
+    success_url = '/trinket/'
+
+class TrinketDeleteView(LoginRequiredMixin, DeleteView):
+    model = Trinket
+    success_url = '/trinket/'
+
+def trinket_index(request):
+    trinkets = Trinket.objects.all()
+    return render(request, 'trinket/index.html', {'trinkets': trinkets})
+
+def trinket_show(request, trinket_id):
+    trinket= Trinket.objects.get(id=trinket_id)
+    return render(request, 'trinket/show.html', {'trinket':trinket})
