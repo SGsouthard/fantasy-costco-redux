@@ -143,11 +143,11 @@ class AdventureGearDeleteView(LoginRequiredMixin, DeleteView):
 
 def adventuregear_index(request):
     adventuregear = AdventureGear.objects.all()
-    return render(request, 'adventuregear/index.html', {'adventuregear': adventuregear})
+    return render(request, 'adventure-gear/index.html', {'adventuregear': adventuregear})
 
 def adventuregear_show(request, adventuregear_id):
     adventuregear= AdventureGear.objects.get(id=adventuregear_id)
-    return render(request, 'adventuregear/show.html', {'adventuregear':adventuregear})
+    return render(request, 'adventure-gear/show.html', {'adventuregear':adventuregear})
 
 # ===== Mount ===== #
 
