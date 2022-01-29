@@ -1,46 +1,55 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fantasy Costco</title>
-    <link rel="stylesheet" href="{% static 'style.css' %}">
-</head>
-<body>
-    <header>
-        {% if user.is_authenticated %}
-            <span>
-                <a href="{% url 'profile' user.username %}">Hello {{user.username}}</a>
-            </span>
-            <span>|</span>
-            <span>
-                <a href="{% url 'logout' %}">Logout</a>
-            </span>
-            <span>|</span>
-            <span>
-                <a href="{% url 'password_reset' %}">Reset Password</a>
-            </span>
-        {% else %}
-            <span>
-                <a href="{% url 'login' %}">Login</a>
-            </span>
-            <span>|</span>
-            <span>
-                <a href="{% url 'signup' %}">SignUp</a>
-            </span>
-        {% endif %}
-        <!-- <a href="{% url 'index' %}"> -->
-            <h1>Fantasy Costco</h1>
-            <h2>Where All Your Dreams Come True</h2>
-            <h3>Got A Deal For You</h3>
-        <!-- </a> -->
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <link rel="shortcut icon" href="{%  static 'favicon.ico' %}" />
+  </head>
+  <body>
+    <header class="base-header">
+      <img
+        src="{% static 'storefront/fantasy-costco-logo.png' %}"
+        id="logo"
+        alt="Fantasy Costco Logo"
+      />
+      <div class="search-bar-set">
+        <input type="text" placeholder="search currently disabled" id="search-bar"/>
+        <input type="button" value="search" />
+      </div>
+      {% if user.is_authenticated %}
+      <div class="user-bar">
+        <span>
+          <a href="{% url 'profile' user.username %}"
+            >Hello {{user.username}}</a
+          >
+        </span>
+        <span>|</span>
+        <span>
+          <a href="{% url 'logout' %}">Logout</a>
+        </span>
+        <span>|</span>
+        <span>
+          <a href="{% url 'password_reset' %}">Reset Password</a>
+        </span>
+      </div>
+      {% else %}
+      <div class="user-bar>">
+        <span>
+          <a href="{% url 'login' %}">Login</a>
+        </span>
+        <span>|</span>
+        <span>
+          <a href="{% url 'signup' %}">SignUp</a>
+        </span>
+      </div>
+      {% endif %}
     </header>
-    {% block content %}
-    {% endblock %}
+    <div class="side-bar"></div>
+    {% block content %} {% endblock %}
 
-    <footer>
-        Thank you to the McElroys for inspiring this project!
-    </footer>
-</body>
+    <footer>TBD</footer>
+  </body>
 </html>
