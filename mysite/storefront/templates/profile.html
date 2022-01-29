@@ -1,11 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{{ user.username }}'s collection:</h1>
-
-    {% for cat in cats %}
-        <a href="/cats/{{cat.id}}">
-            <h3>{{ cat.name }}</h3>
+    <h1>{{ user.username }}'s Submitted Items:</h1>
+    <h3>Weapons</h3>
+    {% if weapon.created_by.id == user.id %}
+    {% for weapon in weapons %}
+        <a href="{% url 'weapon' weapon.id%}">
+            <h3>{{ weapon.name }}</h3>
         </a>
     {% endfor %}
+    {% else %}
+    <a href="{% url 'weapon-add' %}">  Nothing has been made yet, want to add some?</a>
 {% endblock %}

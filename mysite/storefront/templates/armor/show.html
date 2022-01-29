@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<h3>Name: {{armor.name}}</h3>
+<p>description: {{armor.description}}</p>
+<p>Price: {{armor.price}}</p>
+<p>Created by: {{armor.created_by}}</p>
+
+
+{% if armor.created_by.id == user.id %}
+<div class=link-collection>
+<a href="{% url 'armor-update' armor.id %}">Update Armor Details</a>
+<a href="{% url 'armor-delete' armor.id %}">DELETE THIS ARMOR</a>
+</div>
+{% else %}
+{% endif %}
+
+{% endblock %}

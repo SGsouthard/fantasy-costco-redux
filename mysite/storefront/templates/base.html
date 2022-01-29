@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CatCollectr</title>
+    <title>Fantasy Costco</title>
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
@@ -18,9 +18,6 @@
                 <a href="{% url 'logout' %}">Logout</a>
             </span>
             <span>|</span>
-            <span>
-                {% comment %} <a href="{% url 'weapon/add' %}">Submit a Weapon</a> {% endcomment %}
-            </span>
         {% else %}
             <span>
                 <a href="{% url 'login' %}">Login</a>

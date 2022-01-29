@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<h3>Potion List</h3>
+
+<div class = "the-loop">
+{% for potion in potions %}
+    <div>
+        <a href="{% url 'potion' potion.id %}">
+            <div class="card-content">
+                <span>{{ potion.name }}</span>
+                <p>Description: {{ potion.description }}</p>
+                <p>Price: {{ potion.price }}</p>
+                <p>Created By: {{potion.created_by}}</p>
+            </div>
+        </a>
+    </div>
+{% endfor %}
+</div>
+
+{% endblock %}

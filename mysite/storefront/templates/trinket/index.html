@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<h3>Trinket List</h3>
+
+<div class = "the-loop">
+{% for trinket in trinkets %}
+    <div>
+        <a href="{% url 'trinket' trinket.id %}">
+            <div class="card-content">
+                <span>{{ trinket.name }}</span>
+                <p>Description: {{ trinket.description }}</p>
+                <p>Price: {{ trinket.price }}</p>
+                <p>Created By: {{trinket.created_by}}</p>
+            </div>
+        </a>
+    </div>
+{% endfor %}
+</div>
+
+{% endblock %}
