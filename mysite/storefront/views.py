@@ -40,29 +40,31 @@ def index(request):
 #         form = AuthenticationForm()
 #         return render(request, 'login.html', {'form': form})
 
-def logout_view(request):
-    logout(request)
-    return redirect('/')
+# def logout_view(request):
+#     logout(request)
+#     return redirect('/')
 
-def signup_view(request):
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            group = Group.objects.get(name='Submission-Page-Permissions')
-            user.groups.add(group)
-            login(request, user)
-            return redirect('/user/'+str(user))
-        else:
-            return HttpResponse('<h1>Signup Failed, Please Try Again</h1>')
-    else:
-        form = UserCreationForm()
-        return render(request, 'signup.html', {'form': form})
+# def signup_view(request):
+#     if request.method == 'POST':
+#         form = UserCreationForm(request.POST)
+#         if form.is_valid():
+#             user = form.save()
+#             group = Group.objects.get(name='Submission-Page-Permissions')
+#             user.groups.add(group)
+#             login(request, user)
+#             return redirect('/user/'+str(user))
+#         else:
+#             return HttpResponse('<h1>Signup Failed, Please Try Again</h1>')
+#     else:
+#         form = UserCreationForm()
+#         return render(request, 'signup.html', {'form': form})
 
 @login_required
 def profile(request, username):
     user = User.objects.get(username=username)
     return render(request, 'profile.html', {'username': username,})
+
+
 
 # ===== WEAPONS ===== #
 

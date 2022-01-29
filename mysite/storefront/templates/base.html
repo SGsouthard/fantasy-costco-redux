@@ -18,6 +18,9 @@
                 <a href="{% url 'logout' %}">Logout</a>
             </span>
             <span>|</span>
+            <span>
+                <a href="{% url 'password_reset' %}">Reset Password</a>
+            </span>
         {% else %}
             <span>
                 <a href="{% url 'login' %}">Login</a>
