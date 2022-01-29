@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<h3>Adventure Gear List</h3>
+
+<div class = "the-loop">
+{% for adventuregear in adventuregears %}
+    <div>
+        <a href="{% url 'adventuregear' adventuregear.id %}">
+            <div class="card-content">
+                <span>{{ adventuregear.name }}</span>
+                <p>Description: {{ adventuregear.description }}</p>
+                <p>Price: {{ adventuregear.price }}</p>
+                <p>Created By: {{adventuregear.created_by}}</p>
+            </div>
+        </a>
+    </div>
+{% endfor %}
+</div>
+
+{% endblock %}

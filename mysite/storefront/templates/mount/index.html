@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<h3>Mount List</h3>
+
+<div class = "the-loop">
+{% for mount in mounts %}
+    <div>
+        <a href="{% url 'mount' mount.id %}">
+            <div class="card-content">
+                <span>{{ mount.name }}</span>
+                <p>Description: {{ mount.description }}</p>
+                <p>Price: {{ mount.price }}</p>
+                <p>Created By: {{mount.created_by}}</p>
+            </div>
+        </a>
+    </div>
+{% endfor %}
+</div>
+
+{% endblock %}
