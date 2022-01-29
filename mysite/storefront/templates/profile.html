@@ -1,18 +1,6 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-{% endblock %}
-
-{% block content %}
-    <h1>{{ user.username }}'s Submitted Items:</h1>
-    <h3>Weapons</h3>
-    {% if weapon.created_by.id == user.id %}
-    {% for weapon in weapons %}
-        <a href="{% url 'weapon' weapon.id%}">
-            <h3>{{ weapon.name }}</h3>
-        </a>
-    {% endfor %}
-    {% else %}
-    <a href="{% url 'weapon-add' %}">  Nothing has been made yet, want to add some?</a>
+<p>At this time we have no way to update emails onto profiles.</p>
+<p>We're doing our best to resolve this issue, for now please check out the <a href="/">Main Page!</a></p>
 {% endblock %}

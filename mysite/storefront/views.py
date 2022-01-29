@@ -64,7 +64,9 @@ def profile(request, username):
     user = User.objects.get(username=username)
     return render(request, 'profile.html', {'username': username,})
 
-
+class UserUpdateView(LoginRequiredMixin, UpdateView):
+    model = User
+    success_url = '/'
 
 # ===== WEAPONS ===== #
 
