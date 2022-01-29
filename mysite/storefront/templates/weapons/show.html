@@ -7,7 +7,13 @@
 <p>Price: {{weapon.price}}</p>
 <p>Created by: {{weapon.created_by}}</p>
 
+
+{% if weapon.created_by.id == user.id %}
+<div class=link-collection>
 <a href="{% url 'weapon-update' weapon.id %}">Update Weapon Details</a>
 <a href="{% url 'weapon-delete' weapon.id %}">DELETE THIS WEAPON</a>
+</div>
+{% else %}
+{% endif %}
 
 {% endblock %}

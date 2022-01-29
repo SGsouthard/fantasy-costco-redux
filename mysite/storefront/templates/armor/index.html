@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<h3>Armor List</h3>
+
+<div class = "the-loop">
+{% for armor in armors %}
+    <div>
+        <a href="{% url 'armor' armor.id %}">
+            <div class="card-content">
+                <span>{{ armor.name }}</span>
+                <p>Description: {{ armor.description }}</p>
+                <p>Price: {{ armor.price }}</p>
+                <p>Created By: {{armor.created_by}}</p>
+            </div>
+        </a>
+    </div>
+{% endfor %}
+</div>
+
+{% endblock %}

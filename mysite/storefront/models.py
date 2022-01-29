@@ -50,13 +50,6 @@ class Weapon(models.Model):
     def __str__(self):
         return self.name
 
-# class WeaponForm(ModelForm):
-#     class Meta:
-#         model = Weapon
-#         fields = ['name', 'description', 'price', 'amountofdice', 'dicetype', 'modifier', 'user']
-
-
-
 
 class Armor(models.Model):
     name = models.CharField(max_length=150)

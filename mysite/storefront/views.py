@@ -1,6 +1,6 @@
 from django.forms import modelformset_factory
 from django.shortcuts import render, redirect
-from .models import Weapon # WeaponForm
+from .models import Armor, Weapon, AdventureGear, Mount, Potion, Trinket
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.models import User
@@ -10,8 +10,6 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib.auth.models import Group
 from django.contrib.auth.mixins import LoginRequiredMixin
-
-
 
 
 # Create your views here.
@@ -78,17 +76,12 @@ class WeaponCreateView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 class WeaponUpdateView(LoginRequiredMixin, UpdateView):
-    # def valid_user(self, form):
-    #     if self.request.user.id == Weapon.created_by:
-    #         print("Success, you can edit this")
-    #     else:
-    #         print("Denied, you can't edit this")
     model = Weapon
     fields = ['name', 'description', 'price']
     success_url = '/weapons/'
 
 
-class WeaponDeleteView(DeleteView):
+class WeaponDeleteView(LoginRequiredMixin, DeleteView):
     model = Weapon
     success_url = '/weapons/'
 
@@ -101,3 +94,31 @@ def weapon_show(request, weapon_id):
     return render(request, 'weapons/show.html', {'weapon':weapon})
 
 # ===== ARMOR ===== #
+
+class ArmorCreateView(LoginRequiredMixin, CreateView):
+    model = Armor
+    fields = ['name', 'description', 'price']
+    success_url = '/armors/'
+
+    def form_valid(self, form):
+        form.instance.created_by = self.request.user
+        return super().form_valid(form)
+
+class ArmorUpdateView(LoginRequiredMixin, UpdateView):
+    model = Armor
+    fields = ['name', 'description', 'price']
+    success_url = '/armors/'
+
+class ArmorDeleteView(LoginRequiredMixin, DeleteView):
+    model = Armor
+    success_url = '/armors/'
+
+def armor_index(request):
+    armors = Armor.objects.all()
+    return render(request, 'armor/index.html', {'armors': armors})
+
+def armor_show(request, armor_id):
+    armor= Armor.objects.get(id=armor_id)
+    return render(request, 'armor/show.html', {'armor':armor})
+
+# ===== Adventure Gear ===== #
