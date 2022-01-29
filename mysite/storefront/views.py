@@ -18,27 +18,27 @@ def index(request):
 
 
 ########### USER #############
-def login_view(request):
-    if request.method == 'POST':
-        # try to log the user in
-        form = AuthenticationForm(request, request.POST)
-        if form.is_valid():
-            u = form.cleaned_data['username']
-            p = form.cleaned_data['password']
-            user = authenticate(username = u, password = p)
-            if user is not None:
-                if user.is_active:
-                    login(request, user) # log the user in by creating a session
-                    return redirect('/user/'+u)
-                else:
-                    print('The account has been disabled.')
-                    return redirect('/login')
-        else:
-            print('The username and/or password is incorrect.')
-            return redirect('/login')
-    else: # it was a GET request so send the empty login form
-        form = AuthenticationForm()
-        return render(request, 'login.html', {'form': form})
+# def login_view(request):
+#     if request.method == 'POST':
+#         # try to log the user in
+#         form = AuthenticationForm(request, request.POST)
+#         if form.is_valid():
+#             u = form.cleaned_data['username']
+#             p = form.cleaned_data['password']
+#             user = authenticate(username = u, password = p)
+#             if user is not None:
+#                 if user.is_active:
+#                     login(request, user) # log the user in by creating a session
+#                     return redirect('/user/'+u)
+#                 else:
+#                     print('The account has been disabled.')
+#                     return redirect('/login')
+#         else:
+#             print('The username and/or password is incorrect.')
+#             return redirect('/login')
+#     else: # it was a GET request so send the empty login form
+#         form = AuthenticationForm()
+#         return render(request, 'login.html', {'form': form})
 
 def logout_view(request):
     logout(request)
