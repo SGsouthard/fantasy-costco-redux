@@ -2,10 +2,10 @@
 
 {% block content %}
     <h1>{{ user.username }}'s Submitted Items:</h1>
-
-    {% for cat in cats %}
-        <a href="/cats/{{cat.id}}">
-            <h3>{{ cat.name }}</h3>
+    <h3>Weapons</h3>
+    {% for weapon in weapons %}
+        <a href="{% url 'weapon' weapon.id%}">
+            <h3>{{ weapon.name }}</h3>
         </a>
     {% endfor %}
 {% endblock %}

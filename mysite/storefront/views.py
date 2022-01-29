@@ -9,6 +9,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib.auth.models import Group
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 
@@ -63,12 +64,11 @@ def signup_view(request):
 @login_required
 def profile(request, username):
     user = User.objects.get(username=username)
-    # Weapons = Weapon.objects.filter(user=user)
     return render(request, 'profile.html', {'username': username,})
 
 # ===== WEAPONS ===== #
 
-class WeaponCreateView(CreateView):
+class WeaponCreateView(LoginRequiredMixin, CreateView):
     model = Weapon
     fields = ['name', 'description', 'price']
     success_url = '/weapons/'
@@ -77,9 +77,16 @@ class WeaponCreateView(CreateView):
         form.instance.created_by = self.request.user
         return super().form_valid(form)
 
-class WeaponUpdateView(UpdateView):
+class WeaponUpdateView(LoginRequiredMixin, UpdateView):
+    # def valid_user(self, form):
+    #     if self.request.user.id == Weapon.created_by:
+    #         print("Success, you can edit this")
+    #     else:
+    #         print("Denied, you can't edit this")
     model = Weapon
     fields = ['name', 'description', 'price']
+    success_url = '/weapons/'
+
 
 class WeaponDeleteView(DeleteView):
     model = Weapon
