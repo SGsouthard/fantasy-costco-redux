@@ -1,1 +1,1 @@
-web: gunicorn fantasy-costco-redux.wsgi
+web: gunicorn fantasy-costco-redux:app
