@@ -1,34 +1,51 @@
 /* Max Size */
 /* Elements */
-h1 {
+
+body {
+    display: grid;
+    grid-template-rows: 8em 1fr; 
+    grid-template-columns: auto;
+    background-color: #2448aa;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1, h2, h3 {
     text-align: center;
+    color: whitesmoke;
 }
 
 footer {
     margin: 1em;
-    background-color: darkred;
+    background-color: #65baff;
+    border-radius: 1em;
+    padding: 1.5em;
     display: flex;
     flex-direction: column;
     align-items: center;
     position:relative;
-    width: 97vw;
+    width: 92.5vw;
     bottom: 0em;
-}
-
-body {
-    background-color: tomato;
-    display: grid;
-    grid-template-rows: 8em 1fr; 
-    grid-template-columns: auto;
-
+    color: whitesmoke;
 }
 
 a {
     text-decoration: none;
 }
 
-input {
-    padding: .5em;
+a:link, a:visited {
+    color: rgb(199, 249, 255);
+}
+
+a:hover, a:active {
+    color: white;
+}
+
+input, button {
+    padding: 1em;
+    border-radius: 1em;
+    background-color: whitesmoke;
+    color: #2448aa;
+    border: none;
 }
 
 label {
@@ -37,10 +54,19 @@ label {
     margin: .5em;
 }
 
+
+
 /* Classes */
+.user-and-search {
+    border-radius: 1em;
+    background-color: #65baff;
+    padding: .5em;
+}
+
 .base-header{
+    background-color: whitesmoke;
+    border-radius: 1em;
     padding: 1em;
-    background-color: chartreuse;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -52,7 +78,8 @@ label {
 }
 
 .side-bar {
-    background-color: deepskyblue;
+    border-radius: 1em;
+    background-color: #65baff;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -74,10 +101,10 @@ label {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .search-bar-set {
-    background-color: darkcyan;
     padding: .25em;
     display: flex;
     align-items: center;
@@ -85,7 +112,6 @@ label {
 }
 
 .user-bar {
-    background-color: coral;
     padding: .325em;
     display: flex;
     align-items: center;
@@ -98,6 +124,26 @@ label {
     margin: .25em;
     padding: .25em;
     text-align: center;
+}
+
+.whole-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: whitesmoke;
+}
+
+.columns {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.column-1, .column-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1em;
 }
 
 .whole-form {
@@ -114,6 +160,7 @@ label {
     align-content: space-around;
     justify-content: center;
     width: 50em;
+    color: whitesmoke;
 }
 
 .submit-button {
@@ -124,6 +171,7 @@ label {
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: whitesmoke;
 }
 
 .link-collection {
@@ -136,11 +184,13 @@ label {
 
 /* Item Card Bits */
 .card-content {
-    background-color: lightpink;
+    background-color: whitesmoke;
+    border-radius: 1em;
     margin: 1em;
     padding: 1em;
     width: 15em;
-    height: 15em;
+    height: 20em;
+    overflow-y: scroll;
 }
 
 .title-decorator {
@@ -149,7 +199,7 @@ label {
 
 .item-name {
     text-align: center;
-    color: white;
+    color: black;
 }
 
 .show-title {
@@ -169,6 +219,10 @@ label {
     padding: .25em;
 }
 
+.white-text {
+    color: whitesmoke;
+    text-align: center;
+}
 
 /* IDs */
 #logo {
@@ -179,10 +233,12 @@ label {
 
 #search-bar {
     max-width: 25em;
+    margin-right: .5em;
 }
 
 #id_description {
-    height: 25em;
+    /* line-height: 2em; */
+    display: inline;
 }
 
 #submission-one, #submission-two, #submission-three{
@@ -206,7 +262,6 @@ label {
 
     .base-header{
         padding: 1em;
-        background-color: yellow;
         display: flex;
         flex-direction: column;
         position: static;
@@ -216,7 +271,6 @@ label {
     }
 
     .side-bar {
-        background-color: plum;
         position: static;
         display: flex;
         flex-direction: row;
@@ -233,7 +287,6 @@ label {
     }
 
     .user-bar {
-        background-color: coral;
         padding: .325em;
         display: flex;
         align-items: center;
@@ -291,7 +344,6 @@ label {
 
     .base-header{
         padding: 1em;
-        background-color: yellow;
         display: flex;
         flex-direction: column;
         position: static;
@@ -301,7 +353,6 @@ label {
     }
 
     .side-bar {
-        background-color: plum;
         position: static;
         display: flex;
         flex-direction: row;
@@ -318,7 +369,6 @@ label {
     }
 
     .user-bar {
-        background-color: coral;
         padding: .325em;
         display: flex;
         align-items: center;
