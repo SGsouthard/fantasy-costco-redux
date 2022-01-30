@@ -1,22 +1,20 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block content %}
-
-<h3>Trinket List</h3>
-
-<div class = "the-loop">
-{% for trinket in trinkets %}
+{% extends 'base.html' %} {% load static %} {% block content %}
+<h1>Trinkets</h1>
+<p class="white-text">Small items that are more superficial in appearance such as jewelery or charms.</p>
+<div class="main-content">
+  <div class="the-loop">
+    {% for trinket in trinkets %}
     <div>
+      <div class="card-content">
         <a href="{% url 'trinket' trinket.id %}">
-            <div class="card-content">
-                <span>{{ trinket.name }}</span>
-                <p>Description: {{ trinket.description }}</p>
-                <p>Price: {{ trinket.price }}</p>
-                <p>Created By: {{trinket.created_by}}</p>
-            </div>
+          <p class="item-name">{{ trinket.name }}</p>
         </a>
+        <p class="item-description"><span class="title-decorator">Description:</span> {{ trinket.description }}</p>
+        <p class="item-price"><span class="title-decorator">Price:</span> {{ trinket.price }}</p>
+        <p class="item-author"><span class="title-decorator">Created By:</span> {{trinket.created_by}}</p>
+      </div>
     </div>
-{% endfor %}
+    {% endfor %}
+  </div>
 </div>
-
 {% endblock %}

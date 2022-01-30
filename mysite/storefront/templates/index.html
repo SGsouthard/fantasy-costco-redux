@@ -1,15 +1,30 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Fantasy Costco</title>
-    <link rel="stylesheet" href="{% static 'style.css' %}">
-  </head>
-  <body>
-    <h1>Fantasy Costco</h1>
-    <h2>Where All Your Dreams Come True</h2>
-    <h3>Got A Deal For You</h3>
-    <hr />
-    <!-- <a href="/cats">View All My Cats!</a> -->
-    <footer>TBD</footer>
-  </body>
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<div class="whole-page">
+  <div class="index-title">
+    <h1>Where all your dreams come true!</h1>
+    <h1>Got a deal for you!</h1>
+  </div>
+
+  <a href="/">
+    <img
+      src="{% static 'storefront/d20-icon-white.png' %}"
+      id="logo"
+      alt="a white, d20 dice"
+    />
+  </a>
+
+  <h2>Hail and well met, Traveller!</h2>
+  <div class="columns">
+    <div class="column-1">
+      <h3>New to the store?</h3>
+      <a href="{% url 'signup' %}" class="user-links"><h3>Sign up here!</h3></a>
+    </div>
+    <div class="column-2">
+      <h3>Returning adventurer?</h3>
+      <a href="{% url 'login' %}" class="user-links"><h3>Log in</h3></a>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

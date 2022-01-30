@@ -1,0 +1,20 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<div class="show-page">
+  <h1>Submission Directory</h1>
+  <p>Choose a category to submit to</p>
+  <div id="submission-links">
+    <div id="submission-one">
+      <a class="side-bar-links" href="{% url 'weapon-add' %}">Weapons</a>
+      <a class="side-bar-links" href="{% url 'armor-add' %}">Armor</a>
+    </div>
+    <div id="submission-two">
+      <a class="side-bar-links" href="{% url 'mount-add' %}">Mounts</a>
+      <a class="side-bar-links" href="{% url 'adventuregear-add' %}">Equipment</a>
+    </div>
+    <div id="submission-three">
+        <a class="side-bar-links" href="{% url 'potion-add' %}">Potions</a>
+        <a class="side-bar-links" href="{% url 'trinket-add' %}">Trinkets</a>
+    </div>
+  </div>
+</div>
+{% endblock %}
