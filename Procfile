@@ -1,3 +1,1 @@
-web: gunicorn fantasy-costco-redux.wsgi:application --log-file - --log-level debug
-python manage.py collectstatic --noinput
-manage.py migrate
+web: gunicorn fantasy-costco-redux.wsgi
