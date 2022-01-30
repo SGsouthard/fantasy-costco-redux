@@ -1,22 +1,19 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block content %}
-<div class="template-box">
-<h3>Weapon List</h3>
-
-<div class = "the-loop">
-{% for weapon in weapons %}
+{% extends 'base.html' %} {% load static %} {% block content %}
+<h1>Weapon List</h1>
+<div class="main-content">
+  <div class="the-loop">
+    {% for weapon in weapons %}
     <div>
+      <div class="card-content">
         <a href="{% url 'weapon' weapon.id %}">
-            <div class="card-content">
-                <span>{{ weapon.name }}</span>
-                <p>Description: {{ weapon.description }}</p>
-                <p>Price: {{ weapon.price }}</p>
-                <p>Created By: {{weapon.created_by}}</p>
-            </div>
+          <p class="item-name">{{ weapon.name }}</p>
         </a>
+        <p class="item-description"><span class="title-decorator">Description:</span> {{ weapon.description }}</p>
+        <p class="item-price"><span class="title-decorator">Price:</span> {{ weapon.price }}</p>
+        <p class="item-author"><span class="title-decorator">Created By:</span> {{weapon.created_by}}</p>
+      </div>
     </div>
-{% endfor %}
-</div>
+    {% endfor %}
+  </div>
 </div>
 {% endblock %}
