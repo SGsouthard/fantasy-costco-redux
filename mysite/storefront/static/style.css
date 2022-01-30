@@ -38,6 +38,11 @@ a:link, a:visited {
 
 a:hover, a:active {
     color: white;
+
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 input, button {
@@ -244,6 +249,7 @@ label {
 #submission-one, #submission-two, #submission-three{
     display: flex;
     flex-direction: column;
+    align-items: center;
     font-size: larger;
 }
 
