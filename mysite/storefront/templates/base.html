@@ -15,41 +15,84 @@
         id="logo"
         alt="Fantasy Costco Logo"
       />
-      <div class="search-bar-set">
-        <input type="text" placeholder="search currently disabled" id="search-bar"/>
-        <input type="button" value="search" />
+      <div class="yser-and-search">
+        {% if user.is_authenticated %}
+        <div class="user-bar">
+          <span class="user-box-links">
+            <a href="{% url 'profile' user.username %}" class="user-links"
+              >Hello {{user.username}}</a
+            >
+          </span>
+          {% comment %} <span class="spacer-bar">|</span> {% endcomment %}
+          <span class="user-box-links">
+            <a href="{% url 'logout' %}" class="user-links">Logout</a>
+          </span>
+          {% comment %} <span class="spacer-bar">|</span> {% endcomment %}
+          <span class="user-box-links">
+            <a href="{% url 'password_reset' %}" class="user-links"
+              >Reset Password</a
+            >
+          </span>
+        </div>
+        {% else %}
+        <div class="user-bar>">
+          <span class="user-box-links">
+            <a href="{% url 'login' %}" class="user-links">Login</a>
+          </span>
+          {% comment %} <span class="spacer-bar">|</span> {% endcomment %}
+          <span class="user-box-links">
+            <a href="{% url 'signup' %}" class="user-links">SignUp</a>
+          </span>
+        </div>
+        {% endif %}
+        <div class="search-bar-set">
+          <input
+            type="text"
+            placeholder="search currently disabled"
+            id="search-bar"
+            size="50"
+          />
+          <input type="button" value="search" />
+        </div>
       </div>
-      {% if user.is_authenticated %}
-      <div class="user-bar">
-        <span>
-          <a href="{% url 'profile' user.username %}"
-            >Hello {{user.username}}</a
-          >
-        </span>
-        <span>|</span>
-        <span>
-          <a href="{% url 'logout' %}">Logout</a>
-        </span>
-        <span>|</span>
-        <span>
-          <a href="{% url 'password_reset' %}">Reset Password</a>
-        </span>
-      </div>
-      {% else %}
-      <div class="user-bar>">
-        <span>
-          <a href="{% url 'login' %}">Login</a>
-        </span>
-        <span>|</span>
-        <span>
-          <a href="{% url 'signup' %}">SignUp</a>
-        </span>
-      </div>
-      {% endif %}
     </header>
-    <div class="side-bar"></div>
+
+    <div class="side-bar">
+      <a class="side-bar-links" href="{% url 'weapons' %}">Weapons</a>
+      <a class="side-bar-links" href="{% url 'armors' %}">Armor</a>
+      <a class="side-bar-links" href="{% url 'adventuregears' %}">Equipment</a>
+      <a class="side-bar-links" href="{% url 'mounts' %}">Mounts</a>
+      <a class="side-bar-links" href="{% url 'potions' %}">Potions</a>
+      <a class="side-bar-links" href="{% url 'trinkets' %}">Trinkets</a>
+    </div>
+
     {% block content %} {% endblock %}
 
-    <footer>TBD</footer>
+    <footer>
+      <span class="footer-content">
+        This website designed by:
+        <a class="footer-link" href="https://github.com/SGsouthard"
+          >Sydney Good-Southard</a
+        >
+      </span>
+      {% comment %} <br />
+      {% endcomment %}
+      <span class="footer-content">
+        Fantasy Costco logo designed by:
+        <a
+          class="footer-link"
+          href="https://ryanphantom.tumblr.com/post/142610393326/super-into-theadventurezone-podcast-right-now-so"
+          >ryanphantom</a
+        >
+      </span>
+      {% comment %} <br />
+      {% endcomment %}
+      <span class="footer-content">
+        Fantasy Costco original concept belongs to:
+        <a class="footer-link" href="https://www.themcelroy.family/"
+          >The McElroy Family</a
+        >
+      </span>
+    </footer>
   </body>
 </html>
