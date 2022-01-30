@@ -14,8 +14,11 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 def index(request):
-    return render(request, 'base.html')
 
+    return render(request, 'index.html')
+
+def submit_directory(request):
+    return render(request, 'submit-directory.html')
 
 ########### USER #############
 # def login_view(request):
