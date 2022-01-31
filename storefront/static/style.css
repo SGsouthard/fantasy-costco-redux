@@ -173,6 +173,7 @@ label {
 }
 
 .show-page {
+    margin: 2em;
     display: flex;
     flex-direction: column;
     align-items: center;
