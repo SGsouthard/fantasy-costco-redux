@@ -75,6 +75,9 @@ a sketch of the index for an item category
 ![a sketch of the show page for a single item](images-for-readme/wireframe-item-show.png)
 a sketch of the show page for a single item
 
+## Proposed Architecture
+I really wanted to have a single page that all items run through, but for now each model runs through it's own set of forms and html pages. In the future I'd like to refactor it down based on which view it is running through and reduce the number of files in the repository. 
+
 # Unsolved Problems/Hurdles
 There were a few things I struggled with on this project that I look forward to updating.
 
