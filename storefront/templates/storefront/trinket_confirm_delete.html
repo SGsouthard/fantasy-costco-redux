@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class="show-page">
 <h1>Delete Trinket</h1>
 
 <form method="post">{% csrf_token %}
@@ -8,5 +9,5 @@
     {{ form }}
     <input type="submit" value="Confirm">
 </form>
-
+</div>
 {% endblock %}
