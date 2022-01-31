@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<h1>Delete Mount</h1>
 
-<div class="show-page">
-<h2>Item Deleted</h2>
-<a href="{% url 'mounts' %}">Return to the Index</a>
-</div>
+<form method="post">{% csrf_token %}
+    <p>Are you sure you want to delete "{{ object }}"?</p>
+    {{ form }}
+    <input type="submit" value="Confirm">
+</form>
 
 {% endblock %}
