@@ -1,1 +1,1 @@
-web: gunicorn fantasy-costco-redux.wsgi --log-file -
+web: gunicorn mysite.wsgi.application --log-file -
