@@ -1,1 +1,1 @@
-web: gunicorn mysite --log-file -
+web: gunicorn mysite.mysite --log-file -
