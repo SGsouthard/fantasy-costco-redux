@@ -1,14 +1,14 @@
-{% extends 'base.html' %}
-
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 <h1>Equipment</h1>
-<p class="white-text">Gear that serves a purpose in adventures, like satchels, lockpicks, lanterns and more!</p>
+<p class="white-text">
+  Gear that serves a purpose in adventures, like satchels, lockpicks, lanterns
+  and more!
+</p>
 <div class="whole-form">
-<form class="submit-form" method="post">
-    {% csrf_token %}
-    {{form}}
-    <br>
-    <input class="submit-button" type="submit">
-</form>
+  <form class="submit-form" method="post">
+    {% csrf_token %} {{form}}
+    <br />
+    <input class="submit-button" type="submit" />
+  </form>
 </div>
 {% endblock %}

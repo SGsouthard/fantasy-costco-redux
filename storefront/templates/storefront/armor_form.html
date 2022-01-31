@@ -1,14 +1,13 @@
-{% extends 'base.html' %}
-
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 <h1>Armor</h1>
-<p class="white-text">Protective gear to keep yourself alive and unharmed, can include shields.</p>
+<p class="white-text">
+  Protective gear to keep yourself alive and unharmed, can include shields.
+</p>
 <div class="whole-form">
-<form class="submit-form" method="post">
-    {% csrf_token %}
-    {{form}}
-    <br>
-    <input class="submit-button" type="submit">
-</form>
+  <form class="submit-form" method="post">
+    {% csrf_token %} {{form}}
+    <br />
+    <input class="submit-button" type="submit" />
+  </form>
 </div>
 {% endblock %}

@@ -1,6 +1,9 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
 <h1>Equipment</h1>
-<p class="white-text">Gear that serves a purpose in adventures, like satchels, lockpicks, lanterns and more!</p>
+<p class="white-text">
+  Gear that serves a purpose in adventures, like satchels, lockpicks, lanterns
+  and more!
+</p>
 <div class="main-content">
   <div class="the-loop">
     {% for adventuregear in adventuregears %}
@@ -9,9 +12,17 @@
         <a href="{% url 'adventuregear' adventuregear.id %}">
           <p class="item-name">{{ adventuregear.name }}</p>
         </a>
-        <p class="item-description"><span class="title-decorator">Description:</span> {{ adventuregear.description }}</p>
-        <p class="item-price"><span class="title-decorator">Price:</span> {{ adventuregear.price }}</p>
-        <p class="item-author"><span class="title-decorator">Created By:</span> {{adventuregear.created_by}}</p>
+        <p class="item-description">
+          <span class="title-decorator">Description:</span> {{
+          adventuregear.description }}
+        </p>
+        <p class="item-price">
+          <span class="title-decorator">Price:</span> {{ adventuregear.price }}
+        </p>
+        <p class="item-author">
+          <span class="title-decorator">Created By:</span>
+          {{adventuregear.created_by}}
+        </p>
       </div>
     </div>
     {% endfor %}

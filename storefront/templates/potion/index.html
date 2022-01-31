@@ -1,6 +1,8 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
 <h1>Potions</h1>
-<p class="white-text">Drinks, poultices, creams, if it's liquid, it will fit in here!</p>
+<p class="white-text">
+  Drinks, poultices, creams, if it's liquid, it will fit in here!
+</p>
 <div class="main-content">
   <div class="the-loop">
     {% for potion in potions %}
@@ -9,9 +11,16 @@
         <a href="{% url 'potion' potion.id %}">
           <p class="item-name">{{ potion.name }}</p>
         </a>
-        <p class="item-description"><span class="title-decorator">Description:</span> {{ potion.description }}</p>
-        <p class="item-price"><span class="title-decorator">Price:</span> {{ potion.price }}</p>
-        <p class="item-author"><span class="title-decorator">Created By:</span> {{potion.created_by}}</p>
+        <p class="item-description">
+          <span class="title-decorator">Description:</span> {{
+          potion.description }}
+        </p>
+        <p class="item-price">
+          <span class="title-decorator">Price:</span> {{ potion.price }}
+        </p>
+        <p class="item-author">
+          <span class="title-decorator">Created By:</span> {{potion.created_by}}
+        </p>
       </div>
     </div>
     {% endfor %}

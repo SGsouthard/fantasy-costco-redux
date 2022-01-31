@@ -1,6 +1,9 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
 <h1>Weapons</h1>
-<p class="white-text">Looking to protect yourself? Or deal some damage? Everything here will help you do both!</p>
+<p class="white-text">
+  Looking to protect yourself? Or deal some damage? Everything here will help
+  you do both!
+</p>
 <div class="main-content">
   <div class="the-loop">
     {% for weapon in weapons %}
@@ -9,9 +12,16 @@
         <a href="{% url 'weapon' weapon.id %}">
           <p class="item-name">{{ weapon.name }}</p>
         </a>
-        <p class="item-description"><span class="title-decorator">Description:</span> {{ weapon.description }}</p>
-        <p class="item-price"><span class="title-decorator">Price:</span> {{ weapon.price }}</p>
-        <p class="item-author"><span class="title-decorator">Created By:</span> {{weapon.created_by}}</p>
+        <p class="item-description">
+          <span class="title-decorator">Description:</span> {{
+          weapon.description }}
+        </p>
+        <p class="item-price">
+          <span class="title-decorator">Price:</span> {{ weapon.price }}
+        </p>
+        <p class="item-author">
+          <span class="title-decorator">Created By:</span> {{weapon.created_by}}
+        </p>
       </div>
     </div>
     {% endfor %}

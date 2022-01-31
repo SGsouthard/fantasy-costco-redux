@@ -1,13 +1,12 @@
-{% extends 'base.html' %}
-
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 <div class="show-page">
-<h1>Delete Equipment</h1>
+  <h1>Delete Equipment</h1>
 
-<form method="post">{% csrf_token %}
+  <form method="post">
+    {% csrf_token %}
     <p>Are you sure you want to delete "{{ object }}"?</p>
     {{ form }}
-    <input type="submit" value="Confirm">
-</form>
+    <input type="submit" value="Confirm" />
+  </form>
 </div>
 {% endblock %}

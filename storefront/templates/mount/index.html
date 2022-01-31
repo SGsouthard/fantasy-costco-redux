@@ -1,6 +1,9 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
 <h1>Mounts</h1>
-<p class="white-text">Whether living, mechanical or otherwise, these are excellent for riding into battle.</p>
+<p class="white-text">
+  Whether living, mechanical or otherwise, these are excellent for riding into
+  battle.
+</p>
 <div class="main-content">
   <div class="the-loop">
     {% for mount in mounts %}
@@ -9,9 +12,16 @@
         <a href="{% url 'mount' mount.id %}">
           <p class="item-name">{{ mount.name }}</p>
         </a>
-        <p class="item-description"><span class="title-decorator">Description:</span> {{ mount.description }}</p>
-        <p class="item-price"><span class="title-decorator">Price:</span> {{ mount.price }}</p>
-        <p class="item-author"><span class="title-decorator">Created By:</span> {{mount.created_by}}</p>
+        <p class="item-description">
+          <span class="title-decorator">Description:</span> {{ mount.description
+          }}
+        </p>
+        <p class="item-price">
+          <span class="title-decorator">Price:</span> {{ mount.price }}
+        </p>
+        <p class="item-author">
+          <span class="title-decorator">Created By:</span> {{mount.created_by}}
+        </p>
       </div>
     </div>
     {% endfor %}

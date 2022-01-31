@@ -1,14 +1,13 @@
-{% extends 'base.html' %}
-
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 <h1>Potions</h1>
-<p class="white-text">Drinks, poultices, creams, if it's liquid, it will fit in here!</p>
+<p class="white-text">
+  Drinks, poultices, creams, if it's liquid, it will fit in here!
+</p>
 <div class="whole-form">
-<form class="submit-form" method="post">
-    {% csrf_token %}
-    {{form}}
-    <br>
-    <input class="submit-button" type="submit">
-</form>
+  <form class="submit-form" method="post">
+    {% csrf_token %} {{form}}
+    <br />
+    <input class="submit-button" type="submit" />
+  </form>
 </div>
 {% endblock %}

@@ -1,14 +1,14 @@
-{% extends 'base.html' %}
-
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 <h1>Mounts</h1>
-<p class="white-text">Whether living, mechanical or otherwise, these are excellent for riding into battle.</p>
+<p class="white-text">
+  Whether living, mechanical or otherwise, these are excellent for riding into
+  battle.
+</p>
 <div class="whole-form">
-<form class="submit-form" method="post">
-    {% csrf_token %}
-    {{form}}
-    <br>
-    <input class="submit-button" type="submit">
-</form>
+  <form class="submit-form" method="post">
+    {% csrf_token %} {{form}}
+    <br />
+    <input class="submit-button" type="submit" />
+  </form>
 </div>
 {% endblock %}

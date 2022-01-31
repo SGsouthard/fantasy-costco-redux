@@ -1,21 +1,18 @@
-{% extends 'base.html' %}
-{% load static %}
-
-{% block content %}
+{% extends 'base.html' %} {% load static %} {% block content %}
 <div class="show-page">
-<h3>Name: {{adventuregear.name}}</h3>
-<p>description: {{adventuregear.description}}</p>
-<p>Price: {{adventuregear.price}}</p>
-<p>Created by: {{adventuregear.created_by}}</p>
+  <h3>Name: {{adventuregear.name}}</h3>
+  <p>description: {{adventuregear.description}}</p>
+  <p>Price: {{adventuregear.price}}</p>
+  <p>Created by: {{adventuregear.created_by}}</p>
 
-
-{% if adventuregear.created_by.id == user.id %}
-<div class=link-collection>
-<a href="{% url 'adventuregear-update' adventuregear.id %}">Update Adventure Gear Details</a>
-<a href="{% url 'adventuregear-delete' adventuregear.id %}">DELETE THIS ADVENTURE GEAR</a>
+  {% if adventuregear.created_by.id == user.id %}
+  <div class="link-collection">
+    <a href="{% url 'adventuregear-update' adventuregear.id %}"
+      >Update Adventure Gear Details</a
+    >
+    <a href="{% url 'adventuregear-delete' adventuregear.id %}"
+      >DELETE THIS ADVENTURE GEAR</a
+    >
+  </div>
 </div>
-</div>
-{% else %}
-{% endif %}
-
-{% endblock %}
+{% else %} {% endif %} {% endblock %}
