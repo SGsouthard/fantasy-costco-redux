@@ -1,9 +1,9 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
 <div class="show-page">
-  <h3>Name: {{mount.name}}</h3>
-  <p>description: {{mount.description}}</p>
-  <p>Price: {{mount.price}}</p>
-  <p>Created by: {{mount.created_by}}</p>
+  <h3>Mount: {{mount.name}}</h3>
+  <p><span class="title-decorator">Description:</span> {{mount.description}}</p>
+  <p><span class="title-decorator">Price:</span> {{mount.price}}</p>
+  <p><span class="title-decorator">Created by:</span> {{mount.created_by}}</p>
 
   {% if mount.created_by.id == user.id %}
   <div class="link-collection">
@@ -11,4 +11,6 @@
     <a href="{% url 'mount-delete' mount.id %}">DELETE THIS MOUNT</a>
   </div>
 </div>
-{% else %} {% endif %} {% endblock %}
+  {% else %}
+  {% endif %}
+{% endblock %}

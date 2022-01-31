@@ -1,9 +1,9 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
 <div class="show-page">
-  <h3>Name: {{armor.name}}</h3>
-  <p>description: {{armor.description}}</p>
-  <p>Price: {{armor.price}}</p>
-  <p>Created by: {{armor.created_by}}</p>
+  <h3>Armor: {{armor.name}}</h3>
+  <p><span class="title-decorator">Description:</span> {{armor.description}}</p>
+  <p><span class="title-decorator">Price:</span> {{armor.price}}</p>
+  <p><span class="title-decorator">Created by:</span> {{armor.created_by}}</p>
 
   {% if armor.created_by.id == user.id %}
   <div class="link-collection">
@@ -11,4 +11,6 @@
     <a href="{% url 'armor-delete' armor.id %}">DELETE THIS ARMOR</a>
   </div>
 </div>
-{% else %} {% endif %} {% endblock %}
+  {% else %}
+  {% endif %}
+{% endblock %}
