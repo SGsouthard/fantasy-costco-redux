@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
 <div class="show-page">
   <h3>Potion: {{potion.name}}</h3>
-  <p><span class="title-decorator">description:</span> {{potion.description}}</p>
+  <p><span class="title-decorator" id="item-description">description:</span> {{potion.description}}</p>
   <p><span class="title-decorator">Price:</span> {{potion.price}}</p>
   <p><span class="title-decorator">Created by:</span> {{potion.created_by}}</p>
 

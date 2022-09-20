@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
 <div class="show-page">
   <h3>Mount: {{mount.name}}</h3>
-  <p><span class="title-decorator">Description:</span> {{mount.description}}</p>
+  <p><span class="title-decorator" id="item-description">Description:</span> {{mount.description}}</p>
   <p><span class="title-decorator">Price:</span> {{mount.price}}</p>
   <p><span class="title-decorator">Created by:</span> {{mount.created_by}}</p>
 
