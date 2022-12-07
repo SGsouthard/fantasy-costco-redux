@@ -2,8 +2,7 @@
 # exit on error
 set -o errexit
 
-pip3 install --upgrade pip
-pip3 install django
+pip install --upgrade pippip install --force-reinstall -U setuptools
 
 python3 manage.py collectstatic --no-input
 python3 manage.py migrate
