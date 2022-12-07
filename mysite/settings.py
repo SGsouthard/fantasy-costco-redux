@@ -13,6 +13,7 @@ import django_heroku
 from pathlib import Path
 import os
 from os import environ
+import django
 
 import dj_database_url
 
