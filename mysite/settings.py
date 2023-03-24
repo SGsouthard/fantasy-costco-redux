@@ -28,7 +28,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('SECRET_KEY', default='your secret key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'RENDER' not in os.environ
+# DEBUG = 'RENDER' not in os.environ
+DEBUG = False
+
 
 ALLOWED_HOSTS = []
 
@@ -140,7 +142,7 @@ if not DEBUG:
 
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
-    # os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'static'),
 )
 
 # Default primary key field type
